@@ -1,0 +1,14 @@
+---
+- name: Configure Nginx web server
+  hosts: myservers
+  tasks: 
+  - name: install nginx server
+    yum:
+      name: nginx
+      state: present
+    become: true
+  - name: start nginx server
+    service:
+      name: nginx
+      state: started
+    become: true
